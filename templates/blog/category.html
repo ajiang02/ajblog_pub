@@ -1,0 +1,73 @@
+{% extends 'blog/base.html' %}
+
+
+{% block title %}
+    <title>{{ cate_name }} - AJ</title>
+{% endblock %}
+
+
+{% block subtitle %}
+    <div class="h2">
+        <span id="subtitle" data-typed-text="{{ cate_name }}"></span>
+    </div>
+    <div class="mt-4">
+        <span class="post-meta">
+            共计 {{ articles_len }} 篇文章
+        </span>
+    </div>
+{% endblock %}
+
+
+{% block container %}
+    <div class="container">
+        <div id="board">
+            <div class="row">
+                <div class="col-12 col-md-10 m-auto">
+                    {% regroup articles.object_list by create_time.year as date_by_year %}
+                    <div class="list-group">
+                        {% for year in date_by_year %}
+                            <p class="h5">{{ year.grouper }}</p>
+                            {% for article in year.list %}
+                                <a href="{% url 'blog:detail' article.pk %}"
+                                   class="list-group-item list-group-item-action">
+                                    <time>{{ article.create_time|date:"m-d" }}</time>
+                                    <div class="list-group-item-title">{{ article.title }}</div>
+                                </a>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+
+                    <nav aria-label="navigation">
+                        <span class="pagination" id="pagination">
+                            <!-- 上一页 -->
+                            {% if articles.has_previous %}
+                                <a href="?{{ articles.previous_page_number.querystring }}" class="extend prev"
+                                   rel="prev">
+                                    <i class="iconfont icon-arrowleft"></i>
+                                </a>
+                            {% endif %}
+                            <!-- 循环页 -->
+                            {% for page in articles.pages %}
+                                {% if page %}
+                                    {% if page == articles.number %}
+                                        <span class="page-number current">{{ page }}</span>
+                                    {% else %}
+                                        <a href="?{{ page.querystring }}" class="page-number">{{ page }}</a>
+                                    {% endif %}
+                                {% else %}
+                                    ...
+                                {% endif %}
+                            {% endfor %}
+                            <!-- 下一页 -->
+                            {% if articles.has_next %}
+                                <a href="?{{ articles.next_page_number.querystring }}" class="extend next">
+                                    <i class="iconfont icon-arrowright"></i>
+                                </a>
+                            {% endif %}
+                        </span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

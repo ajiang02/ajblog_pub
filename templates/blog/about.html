@@ -1,0 +1,117 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <title>关于 - AJ</title>
+{% endblock %}
+
+
+{% block subtitle %}
+    <div class="h2">
+        <span id="subtitle" data-typed-text="about me">
+        </span>
+    </div>
+{% endblock %}
+
+
+{% block js %}
+    <script src="{% static 'js/custom_about.js' %}"></script>
+{% endblock %}
+
+
+{% block css %}
+    <link rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css"/>
+{% endblock %}
+
+
+{% block container %}
+    <div class="container">
+        <div id="board">
+            <div class="about-avatar">
+                <img src="{% static 'img/site_icon.png' %}" class="img-fluid">
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-md-10 m-auto">
+                        <div class="text-center">
+                            <div class="about-info">
+                                <div class="about-name">AJ</div>
+                                <div class="about-intro">Keep Learning & Love Dancing</div>
+                                <div class="about-icons">
+                                    <a href=https://github.com/ajiang02"
+                                       class="hint--bottom hint--rounded" aria-label="GitHub" target="_blank">
+                                        <i class="iconfont icon-github-fill"></i>
+                                    </a>
+                                    <a class="qr-trigger" target="_self">
+                                        <i class="iconfont icon-wechat-fill"></i>
+                                        <img class="qr-img" src="{% static 'img/qrcode.jpeg' %}"/>
+                                    </a>
+                                    <a class="hint--bottom hint--rounded" aria-label="点击复制邮箱">
+                                        <span id="emailAddress" style="display: none">ajiang0202@gmail.com</span>
+                                        <i id="copyIcon" class="iconfont icon-google-fill"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <article class="about-content page-content mt-5">
+                            <div class="markdown-body">
+                                <h5>后端开发</h5>
+                                <ul>
+                                    <li>
+                                        <p>
+                                            PHP | 熟悉 ThinkPHP 框架开发，了解 Swoole、Hyperf，会使用 Composer 依赖管理工具。
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <p>
+                                            Python | 用来实现算法、爬虫，也会使用 Django 框架（本博客便是基于 Django 开发的）。
+                                        </p>
+                                    </li>
+                                </ul>
+                                <h5>前端开发</h5>
+                                <ul>
+                                    <li><p>LayUI | 能独立搭建并使用。</p></li>
+                                    <li><p>Vue | 有前后端交互的经验。</p></li>
+                                </ul>
+                                <h5>关系型数据库</h5>
+                                <ul>
+                                    <li><p>MySQL | 熟悉 SQL，了解其特性、索引、锁、事务等。</p></li>
+                                </ul>
+                                <h5>非关系型数据库</h5>
+                                <ul>
+                                    <li><p>Redis | 熟悉 Redis 的使用，了解其数据结构、持久化、淘汰策略、主从架构等。</p></li>
+                                </ul>
+                                <h5>中间件</h5>
+                                <ul>
+                                    <li><p>RabbitMQ | 熟悉其消费模式。</p></li>
+                                    <li><p>Elasticsearch | 熟悉其查询语法。</p></li>
+                                    <li><p>Canal | 熟悉其使用。</p></li>
+                                    <li><p>Zookeeper | 能简单使用。</p></li>
+                                </ul>
+                                <h5>版本控制</h5>
+                                <ul>
+                                    <li><p>Git | 熟悉常用的命令。</p></li>
+                                    <li><p>SVN | 在工作中使用。</p></li>
+                                </ul>
+                                <h5>Linux</h5>
+                                <ul>
+                                    <li><p> 熟悉常用的命令，能独立部署、运行和维护应用。</p></li>
+                                </ul>
+                                <h5>网络</h5>
+                                <ul>
+                                    <li><p>熟悉 TCP/IP、HTTP 等网络协议。</p></li>
+                                </ul>
+                                <h5>虚拟化云原生</h5>
+                                <ul>
+                                    <li><p>Docker | 熟悉其基本使用，能部署服务。</p></li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

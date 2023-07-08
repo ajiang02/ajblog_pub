@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "ajblog"
+version = "0.1.0"
+description = ""
+authors = ["ajiang02 <ajiang0202@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.2"
+mysqlclient = "^2.1.1"
+django-pure-pagination = "^0.3.0"
+markdown = "^3.4.3"
+pygments = "^2.15.1"
+django-haystack = "^3.2.1"
+whoosh = "^2.7.4"
+jieba = "^0.42.1"
+django-mdeditor = "^0.1.20"
+gunicorn = "^20.1.0"
+supervisor = "^4.2.5"
+
+
+[tool.poetry.group.dev.dependencies]
+fabric = "^3.1.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

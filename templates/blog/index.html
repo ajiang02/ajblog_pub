@@ -1,0 +1,84 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}
+    <title>首页 - AJ</title>
+{% endblock %}
+
+{% block subtitle %}
+    <div class="h2">
+        <span id="subtitle" data-typed-text="less is more">
+        </span>
+    </div>
+{% endblock %}
+
+
+{% block container %}
+    <div class="container">
+        <div id="board">
+            <div class="row">
+                <div class="col-12 col-md-10 m-auto">
+                    {% for article in articles.object_list %}
+                        <div class="row mx-auto index-card">
+                            <div class="col-12 col-md-4 m-auto index-img">
+                                <a href="{% url "blog:detail" article.pk %}" target="_self">
+                                    <img src="{% static 'img/loading.gif' %}" lazyload>
+                                </a>
+                            </div>
+                            <article class="col-12 col-md-8 mx-auto index-info">
+                                <h1 class="index-header">
+                                    <a href="{% url "blog:detail" article.pk %}"
+                                       target="_self">{{ article.title }}</a>
+                                </h1>
+                                <span class="index-excerpt">{{ article.excerpt }}</span>
+                                <div class="index-btm post-metas">
+                                    <div class="post-meta mr-3">
+                                        <i class="iconfont icon-date"></i>
+                                        <time>{{ article.modify_time|date:"Y-m-d" }}</time>
+                                    </div>
+                                    <div class="post-meta mr-3">
+                                        <i class="iconfont icon-category"></i>{{ article.category.name }}
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    {% endfor %}
+
+                    <nav aria-label="navigation">
+                        <span class="pagination" id="pagination">
+                            <!-- 上一页 -->
+                            {% if articles.has_previous %}
+                                <a href="?{{ articles.previous_page_number.querystring }}" class="extend prev"
+                                   rel="prev">
+                                    <i class="iconfont icon-arrowleft"></i>
+                                </a>
+                            {% endif %}
+                            <!-- 循环页 -->
+                            {% for page in articles.pages %}
+                                {% if page %}
+                                    {% if page == articles.number %}
+                                        <span class="page-number current">{{ page }}</span>
+                                    {% else %}
+                                        <a href="?{{ page.querystring }}" class="page-number">{{ page }}</a>
+                                    {% endif %}
+                                {% else %}
+                                    ...
+                                {% endif %}
+                            {% endfor %}
+                            <!-- 下一页 -->
+                            {% if articles.has_next %}
+                                <a href="?{{ articles.next_page_number.querystring }}" class="extend next">
+                                    <i class="iconfont icon-arrowright"></i>
+                                </a>
+                            {% endif %}
+                        </span>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %} }}
+
+
+
+
