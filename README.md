@@ -1,2 +1,2 @@
-# AJBlog
-AJ‘s blog
+# 预览
+http://106.14.207.15/blog/index
